@@ -32,7 +32,7 @@ public class UCS {
             }
             checker = current;
         }
-        if (checker.currentNodePath.size()==1){
+        if (checker.currentNodePath.size()==0){
             System.out.println("\nPencarian tidak ditemukan.\n");
         }
     }

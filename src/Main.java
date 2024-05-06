@@ -70,9 +70,9 @@ public class Main {
         if (inputMethod==1){
             UCS.findWordLadderSolution(startWord, endWord, wordArray);
         } else if (inputMethod==2){
-            // TODO: CALL GREEDY BEST FIRST SEARCH METHOD
+            GreedyBFS.findWordLadderSolution(startWord, endWord, wordArray);
         } else {
-            // TODO: CALL A* METHOD
+            AStar.findWordLadderSolution(startWord, endWord, wordArray);
         }
 
         long endTime = System.currentTimeMillis();
