@@ -1,77 +1,81 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
-    private static int inputMethod;
+    private static Integer inputMethod;
     private static String startWord;
     private static String endWord;
-
+    
     public static void main(String[] args) {
-
+        
         // TES
-        String[] wordArray;
-        wordArray = Utils.makeListOfWords("dictionary/words.txt");
-        for (int i=0; i<wordArray.length; i++){
-            System.out.println(wordArray[i]);
+        HashSet<String> wordArray = Utils.makeListOfWords("dictionary/words.txt");
+        for (String word : wordArray){
+            System.out.println(word);
         }
-        System.out.println(wordArray.length);
+        System.out.println(wordArray.size());
         System.out.println(Utils.isWordExist(wordArray, "yes"));
-
-
-
+        
+        
+        
         //MAIN
         // 1. START DAN INITIAL DECLARE
         Utils.showOpening();
+        Scanner scanner = new Scanner(System.in);
         
         // 2. INPUT START WORD DAN END WORD
         while (true){
-            Scanner scanner = new Scanner(System.in);
             System.out.print("Masukkan start word : ");
             startWord = scanner.nextLine();
             System.out.print("Masukkan end word : ");
             endWord = scanner.nextLine();
-            scanner.close();
-            boolean isStartWordValid = Utils.isWordExist(wordArray, startWord);
-            boolean isEndWordValid = Utils.isWordExist(wordArray, endWord);
 
-            if (isStartWordValid && isEndWordValid){
+            if (startWord.length()==endWord.length() && wordArray.contains(startWord) && wordArray.contains(endWord)){
                 break;
             }
 
             // output error input
-            if (!isStartWordValid){
-                System.out.println("\nTolong masukkan start word dengan benar.");
+            if (wordArray.contains(startWord)){
+                System.out.println("\nTolong masukkan start word dengan benar.\n");
+            } else if (wordArray.contains(startWord)){
+                System.out.println("\nTolong masukkan end word dengan benar.\n");
             } else {
-                System.out.println("\nTolong masukkan end word dengan benar.");
+                System.out.println("\nPanjang start word dengan end word berbeda.\n");
             }
         }
     
         // 3. INPUT METODE
         Utils.showMethodMenu();
-        try {
-            while (true){
-                Scanner scanner = new Scanner(System.in);
-                System.out.print("Masukkan pilihan metode : ");
-                Integer inputMethod = scanner.nextInt();
-                scanner.close();
-                if (inputMethod>0 && inputMethod<4){
+        while (true){
+            System.out.print("Masukkan pilihan metode : ");
+            if (scanner.hasNextInt()){
+                inputMethod = scanner.nextInt();
+                if (inputMethod>=1 && inputMethod<=3){
                     break;
-                }
-            }
-                
-        // 4. PANGGIL ALGORITMA
-            if (inputMethod==1){
-                // TODO: CALL UCS METHOD
-
-            } else if (inputMethod==2){
-                // TODO: CALL GREEDY BEST FIRST SEARCH METHOD
+                } else {
+                    System.out.println("\nTolong masukkan inputMethod dengan benar.\n");
+                    scanner.nextLine();
+                } 
             } else {
-                // TODO: CALL A* METHOD
+                System.out.println("\nTolong masukkan inputMethod dengan benar.\n");
+                scanner.nextLine();
             }
+        }
             
-        } catch (Exception e){
-            System.err.println(e.getMessage());
+        // 4. PANGGIL ALGORITMA
+        long startTime = System.currentTimeMillis();
+
+        if (inputMethod==1){
+            UCS.findWordLadderSolution(startWord, endWord, wordArray);
+        } else if (inputMethod==2){
+            // TODO: CALL GREEDY BEST FIRST SEARCH METHOD
+        } else {
+            // TODO: CALL A* METHOD
         }
 
+        long endTime = System.currentTimeMillis();
+
         // 5. OUTPUT HASIL DAN END
+        scanner.close();
+        System.out.println("Waktu eksekusi : " + (endTime-startTime) + "ms\n");
     }
 }
