@@ -1,25 +1,24 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Utils {
 
-    public static String[] makeListOfWords(String filePath){
-        ArrayList<String> resArrList = new ArrayList<>();
+    public static HashSet<String> makeListOfWords(String filePath){
+        HashSet<String> res = new HashSet<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))){
             String line;
             while ((line = br.readLine()) != null){
-                resArrList.add(line);
+                res.add(line);
             }
         } catch (IOException e){
             e.printStackTrace();
         }
-        String[] resList = resArrList.toArray(new String[0]);
-        return resList;
+        return res;
     }
 
-    public static boolean isWordExist(String[] wordList, String word){
+    public static boolean isWordExist(HashSet<String> wordList, String word){
         for (String w : wordList){
             if (w.equals(word)){
                 return true;
