@@ -5,12 +5,14 @@ import java.util.*;
 
 public class Utils {
 
-    public static HashSet<String> makeListOfWords(String filePath){
+    public static HashSet<String> makeListOfWords(String word){
         HashSet<String> res = new HashSet<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))){
+        try (BufferedReader br = new BufferedReader(new FileReader("dictionary/words.txt"))){
             String line;
             while ((line = br.readLine()) != null){
-                res.add(line);
+                if (line.length() == word.length()){
+                    res.add(line);
+                }
             }
         } catch (IOException e){
             e.printStackTrace();
@@ -36,6 +38,7 @@ public class Utils {
 
     public static void showOpening(){
         //TODO: IMPLEMENT SHOW OPENING
+        // System.out.println("halo");
     }
 
 }

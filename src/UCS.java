@@ -4,18 +4,19 @@ import java.util.PriorityQueue;
 
 public class UCS {
     public static void findWordLadderSolution(String startWord, String endWord, HashSet<String> dictionary){
-        PriorityQueue<Node> pq = new PriorityQueue<>(new NodeComparator());
+        PriorityQueue<Node> pq = new PriorityQueue<>(new UCSNodeComparator());
         HashSet<String> visitedNode = new HashSet<>();
         
         Node startNode = new Node(startWord, new ArrayList<>());
         startNode.currentNodePath.add(startWord);
         pq.offer(startNode);
+        Node checker = new Node("a",new ArrayList<>());
         
         while (!pq.isEmpty()) {
             Node current = pq.poll();
             
             if (current.currentNodeWord.equals(endWord)) {
-                System.out.println("Path ditemukan : " + current.currentNodePath);
+                System.out.println("\nPath ditemukan : " + current.currentNodePath);
                 System.out.println("Jumlah node dikunjungi : " + visitedNode.size());
                 break;
             }
@@ -29,6 +30,10 @@ public class UCS {
                     pq.offer(neighborNode);
                 }
             }
+            checker = current;
+        }
+        if (checker.currentNodePath.size()==1){
+            System.out.println("\nPencarian tidak ditemukan.\n");
         }
     }
     

@@ -4,30 +4,33 @@ public class Main {
     private static Integer inputMethod;
     private static String startWord;
     private static String endWord;
+    private static HashSet<String> wordArray;
     
     public static void main(String[] args) {
         
         // TES
-        HashSet<String> wordArray = Utils.makeListOfWords("dictionary/words.txt");
-        for (String word : wordArray){
-            System.out.println(word);
-        }
-        System.out.println(wordArray.size());
-        System.out.println(Utils.isWordExist(wordArray, "yes"));
+        // for (String word : wordArray){
+        //     System.out.println(word);
+        // }
+        // System.out.println(wordArray.size());
+        // System.out.println(Utils.isWordExist(wordArray, "yes"));
         
         
         
         //MAIN
         // 1. START DAN INITIAL DECLARE
-        Utils.showOpening();
+        // Utils.showOpening();
         Scanner scanner = new Scanner(System.in);
         
         // 2. INPUT START WORD DAN END WORD
         while (true){
             System.out.print("Masukkan start word : ");
             startWord = scanner.nextLine();
+            startWord = startWord.toLowerCase();
             System.out.print("Masukkan end word : ");
             endWord = scanner.nextLine();
+            endWord = endWord.toLowerCase();
+            wordArray = Utils.makeListOfWords(startWord);
 
             if (startWord.length()==endWord.length() && wordArray.contains(startWord) && wordArray.contains(endWord)){
                 break;

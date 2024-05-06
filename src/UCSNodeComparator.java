@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class NodeComparator implements Comparator<Node>{
+public class UCSNodeComparator implements Comparator<Node>{
 
     @Override
     public int compare(Node n1, Node n2) {
