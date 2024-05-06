@@ -8,18 +8,7 @@ public class Main {
     
     public static void main(String[] args) {
         
-        // TES
-        // for (String word : wordArray){
-        //     System.out.println(word);
-        // }
-        // System.out.println(wordArray.size());
-        // System.out.println(Utils.isWordExist(wordArray, "yes"));
-        
-        
-        
-        //MAIN
-        // 1. START DAN INITIAL DECLARE
-        // Utils.showOpening();
+        // 1. DEKLARASI AWAL
         Scanner scanner = new Scanner(System.in);
         
         // 2. INPUT START WORD DAN END WORD

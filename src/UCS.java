@@ -10,7 +10,8 @@ public class UCS {
         Node startNode = new Node(startWord, new ArrayList<>());
         startNode.currentNodePath.add(startWord);
         pq.offer(startNode);
-        Node checker = new Node("a",new ArrayList<>());
+        boolean found = false;
+
         
         while (!pq.isEmpty()) {
             Node current = pq.poll();
@@ -18,6 +19,7 @@ public class UCS {
             if (current.currentNodeWord.equals(endWord)) {
                 System.out.println("\nPath ditemukan : " + current.currentNodePath);
                 System.out.println("Jumlah node dikunjungi : " + visitedNode.size());
+                found = true;
                 break;
             }
             
@@ -30,9 +32,9 @@ public class UCS {
                     pq.offer(neighborNode);
                 }
             }
-            checker = current;
         }
-        if (checker.currentNodePath.size()==0){
+
+        if (!found){
             System.out.println("\nPencarian tidak ditemukan.\n");
         }
     }
