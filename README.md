@@ -19,9 +19,12 @@ git clone https://github.com/fabianradenta/Tucil3_13522105.git
 ```
 cd /path/to/src
 ```
-4. *Compile* program dengan *command* `Javac -d ../bin/ Main.java` 
-5. *Run* program dengan *command* `Java -cp ../bin/ Main`
-6. Program akan meminta masukan *start word*, *end word*, dan metode algoritma yang akan digunakan. Pastikan masukan yang diterima program benar.
+4. *Compile* dan *run* program dengan *command*
+```
+Javac -d ../bin/ Main.java
+Java -cp ../bin/ Main
+```
+5. Program akan meminta masukan *start word*, *end word*, dan metode algoritma yang akan digunakan. Pastikan masukan yang diterima program benar.
 6. Jika masukan yang diterima sudah benar, program akan melakukan pencarian solusi permainan Word Ladder. Jika solusi ditemukan, program akan menampilkan *path* solusi, jumlah *node* yang telah dikunjungi, dan waktu eksekusi program. Namun, jika solusi tidak ditemukan, program akan menampilkan pesan bahwa solusi tidak ditemukan dan menampilkan waktu eksekusi program.
 
 ## Author
