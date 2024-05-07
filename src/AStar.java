@@ -10,7 +10,7 @@ public class AStar {
         Node startNode = new Node(startWord, new ArrayList<>());
         startNode.currentNodePath.add(startWord);
         pq.offer(startNode);
-        Node checker = new Node("a",new ArrayList<>());
+        boolean found = false;
         
         while (!pq.isEmpty()) {
             Node current = pq.poll();
@@ -30,9 +30,8 @@ public class AStar {
                     pq.offer(neighborNode);
                 }
             }
-            checker = current;
         }
-        if (checker.currentNodePath.size()==0){
+        if (!found){
             System.out.println("\nPencarian tidak ditemukan.\n");
         }
     }
