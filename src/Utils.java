@@ -36,9 +36,19 @@ public class Utils {
         System.out.println("3. A*\n");
     }
 
-    public static void showOpening(){
-        //TODO: IMPLEMENT SHOW OPENING
-        // System.out.println("halo");
+    public static void hii(){
+        System.out.println("Selamat datang di Program Pencarian Solusi Word Ladder\n");
+        System.out.println("Untuk menggunakan program ini, silakan persiapkan masukan berikut :");
+        System.out.println("- kata awal pencarian");
+        System.out.println("- kata akhir pencarian");
+        System.out.println("- metode pencarian yang akan digunakan\n");
+        System.out.println("Ayo kita mulai!");
     }
 
+    public static void thanks(){
+        System.out.println("=======================");
+        System.out.println("     Terima Kasih      ");
+        System.out.println("=======================");
+        System.out.println("       ₊˚.⊹♡⊹.˚₊       ");
+    }
 }

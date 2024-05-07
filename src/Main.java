@@ -10,6 +10,7 @@ public class Main {
         
         // 1. DEKLARASI AWAL
         Scanner scanner = new Scanner(System.in);
+        Utils.hii();
         
         // 2. INPUT START WORD DAN END WORD
         while (true){
@@ -69,5 +70,6 @@ public class Main {
         // 5. OUTPUT HASIL DAN END
         scanner.close();
         System.out.println("Waktu eksekusi : " + (endTime-startTime) + "ms\n");
+        Utils.thanks();
     }
 }
